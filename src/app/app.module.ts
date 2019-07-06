@@ -1,20 +1,36 @@
+// Core
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+// Rutas
+import { AppRoutingModule } from './app-routing.module';
+
+
+// Componentes
+// Header y app
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
-import { FooterComponent } from './shared/footer/footer.component';
+
+// Contenido
 import { PortafolioComponent } from './pages/portafolio/portafolio.component';
+import { AcercaComponent } from './pages/acerca/acerca.component';
+import { ItemComponent } from './pages/item/item.component';
+
+// Footer
+import { FooterComponent } from './shared/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    PortafolioComponent
+    PortafolioComponent,
+    AcercaComponent,
+    ItemComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
