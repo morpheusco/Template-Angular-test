@@ -11,8 +11,18 @@ export class InfoPaginaService {
   info: InfoPagina = {};
   cargada = false;
 
+  // Cargando el equipo desde Json Firebase
+  equipo: any [] = [];
+
   constructor( private http: HttpClient  ) {
 
+    // Llamamos a los dos métodos, el que carga el json local y el json externo de Firebase
+    this.cargarInfo();
+    this.cargarEquipo ();
+
+   }
+
+   private cargarInfo () {
     // Leer el Json
     this.http.get ('assets/data/data-pagina.json')
     .subscribe ( (resp: InfoPagina) =>  {
@@ -20,11 +30,22 @@ export class InfoPaginaService {
       this.cargada = true;
       this.info = resp;
 
-      console.log ( resp.email );
+    });
+
+   }
+
+   private cargarEquipo () {
+    // Leer el Json
+    this.http.get ('https://angular-html-plantilla.firebaseio.com/equipo.json')
+    .subscribe ( (resp: any[]) => {
+
+      this.equipo = resp;
+
+      console.log ( resp[0].nombre );
 
     });
 
-
-
    }
+
+
 }
