@@ -41,7 +41,6 @@ export class InfoPaginaService {
 
       this.equipo = resp;
 
-      console.log ( resp[0].nombre );
 
     });
 
