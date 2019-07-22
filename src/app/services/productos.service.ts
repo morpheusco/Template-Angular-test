@@ -9,42 +9,39 @@ export class ProductosService {
 
   cargando = true;
   urlProductos = 'https://angular-html-plantilla.firebaseio.com/productos_idx.json';
-  productos: Productos [] = [];
 
-  constructor( private http: HttpClient ) {
+  productos: Productos[] = [];
 
-    this.cargarProductos ();
+
+  constructor(private http: HttpClient) {
+
+    this.cargarProductos();
 
   }
 
-  private cargarProductos()  {
+  private cargarProductos() {
 
     this.http.get(this.urlProductos)
-      .subscribe( (resp: Productos[]) => {
+      .subscribe((resp: Productos[]) => {
 
-        console.log (resp);
         this.productos = resp;
+        this.cargando = false;
 
         // Espero un par de segundos antes de mostrar los productos desde Firebase
-        setTimeout (() => {
-          this.cargando = false;
-        }, 2000
-        );
+        /*         setTimeout (() => {
+                  this.cargando = false;
+                }, 2000
+                ); */
 
-      } ) ;
-
-
-
-
-
-
-
-
+      });
 
   }
 
+  getProducto(id: string) {
 
+    return this.http.get(`https://angular-html-plantilla.firebaseio.com/productos/${ id }.json`);
 
-
+  }
 
 }
+

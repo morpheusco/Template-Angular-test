@@ -8,7 +8,7 @@ const app_routes: Routes = [
 // tslint:disable-next-line: no-trailing-whitespace
   { path: 'home', component: PortafolioComponent},
   { path: 'acerca', component:AcercaComponent},
-  { path: 'item', component:ItemComponent },
+  { path: 'item/:id', component:ItemComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ] ;
 
