@@ -22,26 +22,41 @@
     </h1>
 
     <nav class="rk-navigation">
-
+      
+      
       <ul class="rk-menu">
+        <div 
+          class="rk-search">
+          <input type="search" 
+            (keyup.enter)="buscarProducto(txtBuscar.value)"
+            placeholder="Buscar..." 
+            id="urku-search" 
+            class="rk-search-field"
+            #txtBuscar>
+          <label for="urku-search">
+            Buscar: 
+          </label>
+        </div>
+
+
         <li routerLinkActive="active" class="rk-menu__item"><a routerLink="home" class="rk-menu__link">Inicio</a>
         </li>
-
+        
         <li  routerLinkActive="active" class="rk-menu__item"><a  routerLink="acerca"  class="rk-menu__link">Acerca de</a>
         </li>
+        
+        
+        
+        <li class="rk-menu__item">
+          <a  class="rk-menu__link">...</a>
+        </li>
+        
       </ul>
-
-      <form class="rk-search">
-        <input type="text" placeholder="Search" id="urku-search" class="rk-search-field">
-        <label for="urku-search">
-          <svg>
-            <use xlink:href="assets/img/symbols.svg#icon-search"></use>
-          </svg>
-        </label>
-      </form>
-
+      
+      
     </nav>
+    
 
   </div>
-
+  
 </header>
